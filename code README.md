@@ -1,0 +1,1 @@
+Project with basics calculator functions
