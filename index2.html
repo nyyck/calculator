@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        th{
+            font-family: 'Segoe UI';
+            font-weight: lighter;
+            padding-bottom: 5px;
+        }
+        form{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <th colspan="5">Calculadora</th>
+            </tr>
+            <tr>
+                <td style="font-family: 'Segoe UI'; font-size: small;"> Valor 1<input type="text" name="val1" id="val1">
+                <select name="sinal" id="sinal">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                </select>
+            </td>
+            <td style="font-family: 'Segoe UI'; font-size: small;"> Valor 2<input type="text" name="val2" id="val2"> </td>
+            <td> <button type="button" onclick="calcular()" value="=" id="result1">Calcular</button></td>
+            <td style="font-family: 'Segoe UI'; font-size: small;"> Resultado<input type="text" name="result" id="result"> </td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        function calcular(){
+            checkforblank()
+            let val1    = parseInt(document.getElementById("val1").value);
+            let val2    = parseInt(document.getElementById("val2").value);
+            let sinal   = document.getElementById("sinal").value;
+            let result  = document.getElementById("result");
+
+            if (sinal == "+") result.value = val1 + val2
+            if (sinal == "-") result.value = val1 - val2
+            if (sinal == "*") result.value = val1 * val2
+            if (sinal == "/") result.value = val1 / val2
+        }
+  
+        function checkforblank() { 
+            if (document.getElementById('val1').value == "") {
+            alert ('por favor insira o primeiro valor');
+            return false;
+            }
+        }
+    </script>
+</body>
+</html>
